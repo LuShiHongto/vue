@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .red{
+            color:red
+        }
+        .bg{
+            background-color:yellow
+        }
+        .size{
+            font-size:28px
+        }
+    </style>
+    <div id="demo">
+        <p :name="name" :id="name+'&laoxie'">属性</p>
+        <p :style="style1">样式1</p>
+        <p :style="{
+            color:'red',
+            fontSize:'14px',
+            backgroundColor:'yellow'
+        }">样式2</p>
+        <p :class="class1">样式1</p>
+    </div>
+    
+    <script src="../../js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            // 选项
+            // 数据选项
+            data:{
+                name:"lemon",
+                style1:{
+                    color:'red',
+                    fontSize:'14px',
+                    backgroundColor:'yellow'
+                },
+                class1:{
+                    red:true,
+                    bg:false,
+                    size:true
+                }
+            },
+            el:"#demo"
+        })
+    </script>
+</body>
+
+</html>
