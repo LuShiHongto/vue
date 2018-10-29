@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo">
+        <div v-if="num==6">6</div>
+        <div v-else-if="num==5">5</div>
+        <div v-else>4</div>
+    </div>
+
+    <script src="../../js/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#demo",
+            data: {
+                bool: true,
+                num:7
+            }
+        })
+    </script>
+</body>
+
+</html>

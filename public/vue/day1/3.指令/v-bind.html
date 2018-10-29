@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo">
+        <p v-bind:name="name">测试</p>
+        <p :style="{
+            fontSize:`${size}px`
+        }">测试</p>
+        <button v-on:click="testClick">OK</button>
+        
+    </div>
+    <script src="../../js/vue.js"></script>
+    <!-- 数据变视图跟着变 -->
+    <script>
+        var vm = new Vue({
+            el: "#demo",
+            data: {
+                name:"lemon",
+                size:20
+            },
+            methods: {
+                testClick: function () {
+                    console.log("你触发了点击事件")
+                    this.size = 40
+                },
+                
+            }
+        })
+    </script>
+</body>
+
+</html>

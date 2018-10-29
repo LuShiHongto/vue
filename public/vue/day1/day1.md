@@ -14,6 +14,12 @@
 
 Vue 的核心库只关注视图层  读音view
 
+双向数据绑定，选项data里面数据变视图跟着变
+
+如果页面注重操作节点，jquery
+
+如果页面数据比较多，建议用vue
+
 # 开发工具
 
 用git下载工具，然后方便我们开发vue项目
@@ -81,3 +87,63 @@ $().addClass();
 
 <p :name="name"></p>
 ```
+
+插入html结构
+```js
+$().html()
+
+<div v-html="html"></div>
+```
+
+
+显示或者隐藏，本质是控制css，节点一直存在的，频繁切换（选项卡，加载的动画）
+```js
+$().show()
+$().hide()
+
+<div v-show="!bool">你好</div>
+```
+
+对节点增加或者删除，节点要不存在或者不存在
+```js
+$().append()
+$().remove()
+
+<div v-if="!bool">你好</div>
+<div v-else>假的</div>
+```
+
+v-for放哪里，那个节点就饿跟着遍历对应的数组,支持嵌套其他指令`v-for,v-if和v-show`
+```html
+$().each()
+
+<div v-for="item in arr" v-text="item.name"></div>
+```
+
+`v-on:click`简写为`@click`，就是把原生的onmousedown->@mousedown，把on改为@，把事件监听函数方法选项的`methods`里面
+```html
+$().on()
+$().click()
+
+<button @click="loadMore">查看更多</button>
+```
+
+`v-bind:xxx`简写为`:xxx`
+```html
+<p v-bind:name="name">测试</p>
+<p :name="name">测试</p>
+```
+
+`v-model`是把视图的值，带回选项`data`里面，只能用在这三个标签里面
+
+视图层影响数据层`v-model`或者`v-on:click`
+```
+<input v-model="name" />
+<select>
+<textarea>
+```
+
+# 指令使用示意图
+
+<img src="屏幕快照 2018-10-29 下午3.38.33.png" />
+

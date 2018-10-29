@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo">
+        <!-- for in  -->
+        <div v-for="item in arr" v-text="item.name"></div>
+
+        <ul>
+            <li v-for="a in arr" v-text="`姓名:${a.name} 年龄: ${a.age}`"></li>
+        </ul>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>技能</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="a in arr" v-if="a.age>17">
+                    <td v-text="a.name"></td>
+                    <td v-text="a.age"></td>
+                    <!-- <td v-text="`${a.skill[0]},${a.skill[1]}`"></td> -->
+                    <td>
+                        <ul v-for="s in a.skill">
+                            <li v-text="s"></li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#demo",
+            data: {
+                arr: [{
+                    name: 'lemon',
+                    age: 18,
+                    skill:['ps','css','jsx']
+                }, {
+                    name: 'laoxie',
+                    age: 20,
+                    skill:['js','ts']
+                }, {
+                    name: 'laoyao',
+                    age: 19,
+                    skill:['ae','flash']
+                }]
+            }
+        })
+    </script>
+</body>
+
+</html>
