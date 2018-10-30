@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo">
+        <p>{{name}}</p>
+        <p v-text="computedName"></p>
+        <p v-text="computedSum"></p>
+    </div>
+    
+    <script src="../../js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            // 选项
+            // 数据选项
+            // data里面有的computed就不能有该属性
+            // 你想把一个旧数据通过算法转为新数据，才会考虑该computed功能
+            data:{
+                name:"lemon1",
+            },
+            computed:{
+                computedName(){
+                    var computedName = this.name+"被计算过的";
+                    return computedName;
+                },
+                computedSum(){
+                    var sum = 1 + 1;
+                    return sum;
+                }
+            },
+            el:"#demo"
+        })
+    </script>
+</body>
+
+</html>

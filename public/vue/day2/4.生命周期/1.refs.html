@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo">
+
+    </div>
+
+    <script src="../../js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            // 选项
+            // 数据选项
+            data: {
+                name: "lemon1",
+                skill: ['ps', 'css', 'js']
+            },
+            // 虚拟DOM,不能用jq或者原生方法操作这个模板
+            template: `
+                <div>
+                    <input ref="input" v-model="name" />
+                    <p ref="p">{{name}}</p>
+                </div>
+            `,
+            el: "#demo",
+            // 在创建之前 一切都没有节点和数据都没有
+            beforeCreate() {
+                console.log("---------------beforeCreate----------------")
+                console.log('模板input节点', this.$refs.input)
+                console.log('模板p的节点', this.$refs.p)
+                console.log('数据模型', this.$data)
+            },
+            // 在创建之后 数据有了，但是模板还没拿到
+            created() {
+                console.log("---------------created----------------")
+                console.log('模板input节点', this.$refs.input)
+                console.log('模板p的节点', this.$refs.p)
+                console.log('数据模型', this.$data)
+                console.log('真实DOM里面的p节点', document.querySelector("div"))
+                console.log(this.$el)
+            },
+            // 挂载之前  数据有了，模板拿到并且拼完数据，但是没渲染
+            beforeMount() {
+                console.log("---------------beforeMount----------------")
+                console.log('模板input节点', this.$refs.input)
+                console.log('模板p的节点', this.$refs.p)
+                console.log('数据模型', this.$data)
+                console.log('真实DOM里面的p节点', document.querySelector("div"))
+                console.log(this.$el)
+            },
+
+            // $("document").ready();
+            // $(function(){
+
+            // })
+            mounted() {
+                console.log("---------------mounted----------------")
+                console.log('模板input节点', this.$refs.input)
+                console.log('模板p的节点', this.$refs.p)
+                console.log('数据模型', this.$data)
+                // mounted
+                // 确保所有DOM渲染完成执行对应操作
+                this.$nextTick(function () {
+                    //$("p")
+                    // Code that will run only after the
+                    // entire view has been rendered
+                })
+            },
+            // 更新前  DOM结构更新
+            // 动V 动M
+            //  模板和数据都变了，但是真实DOM没变
+            beforeUpdate() {
+                console.log("---------------beforeUpdate----------------")
+                console.log('模板input节点', this.$refs.input)
+                console.log('模板p的节点', this.$refs.p)
+                console.log('数据模型', this.$data)
+                // mounted
+                // 确保所有DOM渲染完成执行对应操作
+            },
+
+            // 更新后
+            // 真实DOM变了
+            updated() {
+                console.log("---------------updated----------------")
+                console.log('模板input节点', this.$refs.input)
+                console.log('模板p的节点', this.$refs.p)
+                console.log('数据模型', this.$data)
+                // mounted
+                // 确保所有DOM渲染完成执行对应操作
+            },
+            beforeDestroy(){
+                console.log("---------------updated----------------")
+                console.log('模板input节点', this.$refs.input)
+                console.log('模板p的节点', this.$refs.p)
+                console.log('数据模型', this.$data)
+            },
+            destroyed(){
+                console.log("---------------updated----------------")
+                console.log('模板input节点', this.$refs.input)
+                console.log('模板p的节点', this.$refs.p)
+                console.log('数据模型', this.$data)
+            }
+        })
+
+        //$("p").xxx
+    </script>
+</body>
+
+</html>

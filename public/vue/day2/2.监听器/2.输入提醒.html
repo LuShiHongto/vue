@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo">
+        <!-- 
+            v-on
+            v-model 
+        -->
+        <input v-model="name" />
+        <span v-show="name.length===0">请输入用户名</span>
+        <span v-show="name.length<6">请输入多于6位</span>
+        <button @click="testClick" :disabled="isShowButton">登录</button>
+        <p>{{name}}</p>
+    </div>
+    
+    <script src="../../js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            // 选项
+            // 数据选项
+            data:{
+                name:"lemon",
+                isShowButton:true
+            },
+            el:"#demo",
+            // 监听name的变化，如果有变化那执行该函数逻辑
+            watch:{
+                name(){
+                    console.log(this.name)
+                    if(this.name.length>5){
+                        this.isShowButton = false
+                    }else{
+                        this.isShowButton = true
+                    }
+                }
+            },
+            methods:{
+                testClick(){
+                    console.log("登录")
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

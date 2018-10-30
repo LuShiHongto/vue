@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo">
+        <!-- 
+            v-on
+            v-model 
+        -->
+        <input v-model="name" />
+        <p>{{name}}</p>
+    </div>
+    
+    <script src="../../js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            // 选项
+            // 数据选项
+            data:{
+                name:"lemon1"
+            },
+            el:"#demo",
+            // 监听name的变化，如果有变化那执行该函数逻辑
+            watch:{
+                name(){
+                    console.log(this.name)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
